@@ -222,3 +222,72 @@ body {
 .header__utility-btn:hover .header__utility-dot {
   background-color: var(--accent);
 }
+
+/* ==========================================================================
+   MAIN LAYOUT & FOOTER
+   ========================================================================== */
+
+/* Контейнер для роутера займає весь вільний простір */
+.main-layout {
+  flex: 1 0 auto; /* Магія флексу: розтягується і штовхає футер до самого низу */
+  padding-top: 6rem;
+  padding-bottom: 6rem;
+  box-sizing: border-box;
+}
+
+/* --- Блок: Tech Footer --- */
+.footer {
+  flex-shrink: 0; /* Не дозволяє футеру стискатися */
+  width: 100%;
+  background: var(--bg-card);
+  border-top: 1px solid var(--border);
+  padding: 3rem 0;
+}
+
+.footer__container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* --- Ліва частина: Інфо --- */
+.footer__info {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+}
+
+.footer__copyright {
+  font-family: var(--font-ui);
+  font-size: 1.2rem;
+  font-weight: 500;
+  color: var(--text-main);
+  letter-spacing: 0.05rem;
+}
+
+.footer__build {
+  font-family: var(--font-tech);
+  font-size: 1.1rem;
+  font-weight: 400;
+  color: var(--text-muted);
+}
+
+/* --- Права частина: Термінальний статус --- */
+.footer__status {
+  display: flex;
+  align-items: center;
+  gap: 1.2rem;
+}
+
+.footer__terminal-line {
+  font-family: var(--font-tech);
+  font-size: 1.1rem;
+  font-weight: 500;
+  color: var(--text-muted);
+  letter-spacing: 0.05rem;
+}
+
+.footer__divider {
+  color: var(--border);
+  font-size: 1.2rem;
+}
