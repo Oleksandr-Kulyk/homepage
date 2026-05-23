@@ -7,7 +7,53 @@
     <title>Document</title>
   </head>
   <body>
-    <p class="mono">Hello, world</p>
-    <p class="regular">Hello, world</p>
+    <header class="header">
+      <div class="header__container container">
+        <div class="header__brand">
+          <div class="header__logo">
+            <svg
+              class="header__logo-icon"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+            >
+              <path
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"
+              />
+            </svg>
+          </div>
+
+          <div class="header__meta">
+            <div class="header__status">
+              <span class="header__status-dot"></span>
+              <span class="header__status-text">SYSTEM ONLINE</span>
+            </div>
+
+            <h1 class="header__name">OLEKSANDR KULYK</h1>
+            <span class="header__role">FRONTEND ENGINEER</span>
+          </div>
+        </div>
+
+        <div class="header__actions">
+          <nav class="header__nav">
+            <a href="#intro" class="header__link header__link--active">HOME</a>
+            <a href="#projects" class="header__link">PROJECTS</a>
+            <a href="#timeline" class="header__link">TIMELINE</a>
+            <a href="#profile" class="header__link">PROFILE</a>
+            <a href="#contact" class="header__link">CONTACT</a>
+          </nav>
+
+          <button class="header__utility-btn" aria-label="System Menu">
+            <span class="header__utility-dot"></span>
+            <span class="header__utility-dot"></span>
+            <span class="header__utility-dot"></span>
+            <span class="header__utility-dot"></span>
+          </button>
+        </div>
+      </div>
+    </header>
   </body>
 </html>
