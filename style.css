@@ -294,8 +294,11 @@ body {
 
 .hidden {
   position: absolute;
+  top: 0;
   opacity: 0;
   transform: translateX(-100%);
+  width: 0;
+  overflow: hidden;
   pointer-events: none;
 }
 
@@ -536,4 +539,156 @@ body {
 
 .intro__contacts-link:hover::before {
   opacity: 1;
+}
+
+/* ==========================================================================
+   BLOCK: Timeline
+   ========================================================================== */
+.timeline {
+  width: 100%;
+  max-width: 900px; /* Обмежуємо ширину для кращої читабельності тексту */
+  margin: 0 auto;
+  padding: 4rem 0;
+}
+
+.timeline__header {
+  margin-bottom: 6rem;
+}
+
+.timeline__subtitle {
+  font-family: var(--font-tech);
+  font-size: 1.1rem;
+  font-weight: 500;
+  letter-spacing: 0.05em;
+  color: var(--text-muted);
+  margin-bottom: 1rem;
+}
+
+.timeline__title {
+  font-family: var(--font-ui);
+  font-size: 3.6rem;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  color: var(--text-main);
+  margin: 0;
+}
+
+/* Контейнер для елементів хронології */
+.timeline__container {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 5rem;
+}
+
+/* Вертикальна вісь */
+.timeline__line {
+  position: absolute;
+  left: 0.7rem; /* Вирівнюємо лінію точно по центру крапок */
+  top: 0.5rem;
+  bottom: 0.5rem;
+  width: 1px;
+  background: var(--border);
+}
+
+/* Окремий вузол */
+.timeline__item {
+  display: flex;
+  gap: 3rem;
+  position: relative;
+}
+
+/* Лівий блок з маркером */
+.timeline__marker {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  padding-top: 0.6rem; /* Коригуємо висоту крапки відносно заголовка */
+  z-index: 2;
+}
+
+.timeline__marker-dot {
+  width: 1.5rem;
+  height: 1.5rem;
+  border-radius: 50%;
+  background: var(--bg-app);
+  border: 2px solid var(--text-muted);
+  box-sizing: border-box;
+  transition: all 0.3s ease;
+}
+
+/* Модифікатор для поточної (активної) точки */
+.timeline__marker-dot--active {
+  border-color: var(--accent);
+  background: var(--accent);
+  box-shadow: 0 0 10px var(--accent-glow);
+}
+
+/* Ефект ховеру: коли ми наводимо на вузол, його маркер підсвічується */
+.timeline__item:hover .timeline__marker-dot {
+  border-color: var(--accent);
+  background: var(--accent);
+  box-shadow: 0 0 8px var(--accent-glow);
+}
+
+/* Права частина з контентом */
+.timeline__content {
+  flex: 1;
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  box-shadow: var(--shadow);
+  padding: 3rem;
+  transition: border-color 0.3s ease;
+}
+
+.timeline__item:hover .timeline__content {
+  border-color: rgba(
+    0,
+    145,
+    255,
+    0.3
+  ); /* Легке підсвічування картки при ховері */
+}
+
+.timeline__date {
+  font-family: var(--font-tech);
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: var(--accent);
+  letter-spacing: 0.05em;
+  display: inline-block;
+  margin-bottom: 1rem;
+}
+
+.timeline__item-title {
+  font-family: var(--font-ui);
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--text-main);
+  margin: 0 0 1.5rem 0;
+}
+
+.timeline__item-text {
+  font-family: var(--font-ui);
+  font-size: 1.5rem;
+  line-height: 1.6;
+  color: var(--text-main);
+  margin: 0 0 2.5rem 0;
+}
+
+/* Технологічні теги внизу картки */
+.timeline__tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.timeline__tag {
+  font-family: var(--font-tech);
+  font-size: 1.1rem;
+  font-weight: 500;
+  color: var(--text-muted);
+  background: var(--bg-app);
+  padding: 0.4rem 1rem;
+  border: 1px solid var(--border);
 }
