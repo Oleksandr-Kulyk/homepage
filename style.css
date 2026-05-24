@@ -49,7 +49,6 @@
   --shadow: 0 8px 30px rgba(216, 226, 237, 0.4);
 }
 
-/* Basic setup */
 * {
   margin: 0;
   padding: 0;
@@ -62,6 +61,10 @@ html {
 
 body {
   font-size: 1.4rem;
+  height: 100vh;
+
+  display: flex;
+  flex-direction: column;
 }
 
 .container {
@@ -70,10 +73,6 @@ body {
   margin: 0 auto;
   padding: 0 2.4rem;
 }
-
-/* ==========================================================================
-   FIXED TECH HEADER (VERTICAL STACK)
-   ========================================================================== */
 
 .header {
   width: 100%;
@@ -85,13 +84,12 @@ body {
 .header__container {
   display: flex;
   justify-content: space-between;
-  align-items: flex-end; /* Вирівнюємо низ логотипа/тексту з низом навігації */
+  align-items: flex-end;
 }
 
-/* --- Логотип + Текстовий блок --- */
 .header__brand {
   display: flex;
-  align-items: flex-end; /* Логотип сідає на базову лінію разом із професією */
+  align-items: flex-end;
   gap: 1.6rem;
 }
 
@@ -107,20 +105,18 @@ body {
   height: 2.8rem;
 }
 
-/* --- Ідеальний вертикальний стовпчик --- */
 .header__meta {
   display: flex;
   flex-direction: column;
-  align-items: flex-start; /* Примусово вирівнюємо все по лівому краю */
-  gap: 1.2rem; /* Рівномірний крок між статусом, іменем та професією */
+  align-items: flex-start;
+  gap: 1.2rem;
 }
 
-/* --- 1 поверъ: Статус --- */
 .header__status {
   display: flex;
   align-items: center;
   gap: 1rem;
-  margin-bottom: 0.2rem; /* Додаткова інженерна пауза перед великим іменем */
+  margin-bottom: 0.2rem;
 }
 
 .header__status-dot {
@@ -139,7 +135,6 @@ body {
   letter-spacing: 0.05rem;
 }
 
-/* --- 2 поверх: Ім'я --- */
 .header__name {
   font-family: var(--font-ui);
   font-size: 1.6rem;
@@ -149,7 +144,6 @@ body {
   line-height: 1;
 }
 
-/* --- 3 поверх: Професія --- */
 .header__role {
   font-family: var(--font-tech);
   font-size: 1.1rem;
@@ -159,7 +153,6 @@ body {
   line-height: 1;
 }
 
-/* --- Навігація та кнопки (Залишаються стабільними) --- */
 .header__actions {
   display: flex;
   align-items: center;
@@ -188,7 +181,6 @@ body {
   color: var(--text-main);
 }
 
-/* Крапка активного пункту лежить чітко на лінії нижнього бордера хедера */
 .header__link--active::after {
   content: "";
   position: absolute;
@@ -223,21 +215,31 @@ body {
   background-color: var(--accent);
 }
 
-/* ==========================================================================
-   MAIN LAYOUT & FOOTER
-   ========================================================================== */
-
-/* Контейнер для роутера займає весь вільний простір */
-.main-layout {
-  flex: 1 0 auto; /* Магія флексу: розтягується і штовхає футер до самого низу */
-  padding-top: 6rem;
-  padding-bottom: 6rem;
-  box-sizing: border-box;
+.content-container {
+  flex-grow: 1;
+  padding: 6rem 0;
+  overflow-y: auto;
 }
 
-/* --- Блок: Tech Footer --- */
+.content-container__container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100%;
+  overflow-x: hidden;
+  position: relative;
+}
+
+.content-section {
+  width: 100%;
+  height: 100%;
+  transition: transform 0.3s ease, opacity 0.3s ease;
+  opacity: 1;
+  transform: translateX(0);
+}
+
 .footer {
-  flex-shrink: 0; /* Не дозволяє футеру стискатися */
+  flex-shrink: 0;
   width: 100%;
   background: var(--bg-card);
   border-top: 1px solid var(--border);
@@ -250,7 +252,6 @@ body {
   align-items: center;
 }
 
-/* --- Ліва частина: Інфо --- */
 .footer__info {
   display: flex;
   align-items: center;
@@ -272,7 +273,6 @@ body {
   color: var(--text-muted);
 }
 
-/* --- Права частина: Термінальний статус --- */
 .footer__status {
   display: flex;
   align-items: center;
@@ -290,4 +290,11 @@ body {
 .footer__divider {
   color: var(--border);
   font-size: 1.2rem;
+}
+
+.hidden {
+  position: absolute;
+  opacity: 0;
+  transform: translateX(-100%);
+  pointer-events: none;
 }
