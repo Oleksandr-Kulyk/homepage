@@ -298,3 +298,242 @@ body {
   transform: translateX(-100%);
   pointer-events: none;
 }
+
+/* ==========================================================================
+   BLOCK: Intro
+   ========================================================================== */
+.intro {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+}
+
+.intro__grid {
+  display: grid;
+  grid-template-columns: 1fr 1.2fr;
+  gap: 8rem;
+  width: 100%;
+  align-items: center;
+}
+
+.intro__hero {
+  display: flex;
+  justify-content: flex-start;
+}
+
+.intro__identity {
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
+  align-items: flex-start;
+}
+
+/* --- Модуль аватара --- */
+.intro__avatar-container {
+  position: relative;
+  width: 20rem;
+  height: 20rem;
+  padding: 1rem;
+  background: var(--bg-card);
+  box-shadow: var(--shadow);
+  box-sizing: border-box;
+}
+
+/* Технічні куточки навколо фото */
+.intro__avatar-corners {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  border: 1px solid var(--border);
+  pointer-events: none;
+  /* Робимо куточки за допомогою clip-path */
+  clip-path: polygon(
+    0 0,
+    20% 0,
+    20% 1px,
+    1px 1px,
+    1px 20%,
+    0 20%,
+    80% 0,
+    100% 0,
+    100% 20%,
+    calc(100% - 1px) 20%,
+    calc(100% - 1px) 1px,
+    80% 1px,
+    100% 80%,
+    100% 100%,
+    80% 100%,
+    80% calc(100% - 1px),
+    calc(100% - 1px) calc(100% - 1px),
+    calc(100% - 1px) 80%,
+    20% 100%,
+    0 100%,
+    0 80%,
+    1px 80%,
+    1px calc(100% - 1px),
+    20% calc(100% - 1px)
+  );
+}
+
+.intro__avatar-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: grayscale(30%) contrast(105%);
+  transition: filter 0.3s ease, transform 0.3s ease;
+}
+
+.intro__avatar-container:hover .intro__avatar-img {
+  filter: grayscale(0%) contrast(100%);
+}
+
+.intro__info {
+  display: flex;
+  flex-direction: column;
+}
+
+.intro__status {
+  display: inline-flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.intro__status-dot {
+  width: 0.7rem;
+  height: 0.7rem;
+  background-color: var(--accent);
+  border-radius: 50%;
+  box-shadow: 0 0 10px var(--accent-glow);
+}
+
+.intro__status-text {
+  font-family: var(--font-tech);
+  font-size: 1.1rem;
+  font-weight: 500;
+  letter-spacing: 0.05em;
+  color: var(--text-muted);
+}
+
+.intro__title {
+  font-family: var(--font-ui);
+  font-size: 4.4rem;
+  font-weight: 700;
+  line-height: 1.1;
+  letter-spacing: -0.03em;
+  color: var(--accent);
+  margin: 0 0 1rem 0;
+}
+
+.intro__subtitle {
+  font-family: var(--font-tech);
+  font-size: 1.5rem;
+  color: var(--text-muted);
+  margin: 0;
+}
+
+.intro__content {
+  display: flex;
+  flex-direction: column;
+}
+
+.intro__text {
+  font-family: var(--font-ui);
+  font-size: 1.7rem;
+  line-height: 1.75;
+  color: var(--text-main);
+  margin: 0 0 4rem 0;
+}
+
+.intro__actions {
+  display: flex;
+}
+
+.btn {
+  display: inline-block;
+  cursor: pointer;
+  text-decoration: none;
+  transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.btn--tech {
+  align-self: flex-start;
+  font-family: var(--font-tech);
+  font-size: 1.3rem;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  padding: 1.4rem 2.8rem;
+  border: 1px solid var(--text-main);
+  color: var(--text-main);
+  background: transparent;
+}
+
+.btn--tech:hover {
+  background: var(--accent);
+  border-color: var(--accent);
+  color: #ffffff;
+  box-shadow: 0 4px 20px var(--accent-glow);
+  transform: translateY(-2px);
+}
+
+.btn--tech:active {
+  transform: translateY(0);
+}
+
+.intro__contacts {
+  margin-top: 5rem;
+  padding-top: 2rem;
+  border-top: 1px dashed var(--border);
+}
+
+.intro__contacts-title {
+  font-family: var(--font-tech);
+  font-size: 1.1rem;
+  font-weight: 500;
+  letter-spacing: 0.05em;
+  color: var(--text-muted);
+  margin-bottom: 1.5rem;
+}
+
+.intro__contacts-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  gap: 3.5rem;
+}
+
+.intro__contacts-item {
+  display: inline-block;
+}
+
+.intro__contacts-link {
+  font-family: var(--font-tech);
+  font-size: 1.3rem;
+  font-weight: 600;
+  color: var(--text-muted);
+  text-decoration: none;
+  letter-spacing: 0.02em;
+  transition: color 0.2s ease;
+  position: relative;
+}
+
+.intro__contacts-link:hover {
+  color: var(--accent);
+}
+
+.intro__contacts-link::before {
+  content: ">";
+  position: absolute;
+  left: -1.2rem;
+  color: var(--accent);
+  opacity: 0;
+  transition: opacity 0.2s ease;
+}
+
+.intro__contacts-link:hover::before {
+  opacity: 1;
+}
