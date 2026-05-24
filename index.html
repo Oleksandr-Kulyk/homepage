@@ -40,7 +40,6 @@
         <div class="header__actions">
           <nav class="header__nav">
             <a href="#intro" class="header__link active-link">HOME</a>
-            <a href="#contacts" class="header__link">CONTACTS</a>
             <a href="#timeline" class="header__link">TIMELINE</a>
             <a href="#profile" class="header__link">PROFILE</a>
           </nav>
@@ -56,8 +55,68 @@
     </header>
     <main id="content-container" class="content-container">
       <div class="content-container__container container">
-        <section class="content-section" id="intro"></section>
-        <section class="content-section hidden" id="contacts"></section>
+        <section class="content-section intro" id="intro">
+          <div class="intro__grid">
+            <div class="intro__hero">
+              <div class="intro__identity">
+                <div class="intro__avatar-container">
+                  <div class="intro__avatar-corners"></div>
+                  <img
+                    src="./assets/images/my_photo.jpg"
+                    alt="Oleksandr Kulyk portrait"
+                    class="intro__avatar-img"
+                  />
+                </div>
+                <div class="intro__info">
+                  <div class="intro__status">
+                    <span class="intro__status-dot"></span>
+                    <span class="intro__status-text"
+                      >STATUS: ACTIVE // READY_TO_BUILD</span
+                    >
+                  </div>
+                  <h1 class="intro__title">Oleksandr Kulyk</h1>
+                  <p class="intro__subtitle">Full-Stack Developer</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="intro__content">
+              <p class="intro__text">
+                Створюю веб-додатки та занурююсь в аналітику складних систем,
+                поєднуючи логіку програмування з математичним моделюванням
+                стратегій. Зараз я активно вдосконалюю свої навички у full-stack
+                розробці (JavaScript, Node.js, SQL), оскільки вважаю критично
+                важливим створювати чисті, швидкі та відмовостійкі інтерфейси.
+                Цей сайт — мій персональний цифровий простір, де інженерія
+                перетинається з усвідомленим, структурованим підходом до роботи
+                та життя.
+              </p>
+              <div class="intro__actions">
+                <a href="#profile" class="btn btn--tech"
+                  >EXECUTE // READ_PROFILE</a
+                >
+              </div>
+              <div class="intro__contacts">
+                <div class="intro__contacts-title">// CHANNELS_OF_COMMUNICATION:</div>
+                <ul class="intro__contacts-list">
+                  <li class="intro__contacts-item">
+                    <a href="mailto:mort36283@gmail.com" class="intro__contacts-link">EMAIL</a>
+                  </li>
+                  <li class="intro__contacts-item">
+                    <a href="https://https://github.com/Oleksandr-Kulyk" target="_blank" class="intro__contacts-link">GITHUB</a>
+                  </li>
+                  <li class="intro__contacts-item">
+                    <a href="https://www.linkedin.com/in/oleksandr-kulyk-a69ab4387/" target="_blank" class="intro__contacts-link">LINKEDIN</a>
+                  </li>
+                  <li class="intro__contacts-item">
+                    <a href="https://t.me/yourusername" target="_blank" class="intro__contacts-link">TELEGRAM</a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+            </div>
+          </div>
+        </section>
         <section class="content-section hidden" id="timeline"></section>
         <section class="content-section hidden" id="profile"></section>
       </div>
