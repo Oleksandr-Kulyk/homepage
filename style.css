@@ -62,7 +62,9 @@ html {
 body {
   font-size: 1.4rem;
   height: 100vh;
-  background-color: red;
+
+  display: flex;
+  flex-direction: column;
 }
 
 .container {
@@ -110,7 +112,6 @@ body {
   gap: 1.2rem;
 }
 
-/* --- 1 поверъ: Статус --- */
 .header__status {
   display: flex;
   align-items: center;
@@ -214,11 +215,27 @@ body {
   background-color: var(--accent);
 }
 
-.main-layout {
-  flex: 1 0 auto;
-  padding-top: 6rem;
-  padding-bottom: 6rem;
-  box-sizing: border-box;
+.content-container {
+  flex-grow: 1;
+  padding: 6rem 0;
+  overflow-y: auto;
+}
+
+.content-container__container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100%;
+  overflow-x: hidden;
+  position: relative;
+}
+
+.content-section {
+  width: 100%;
+  height: 100%;
+  transition: transform 0.3s ease, opacity 0.3s ease;
+  opacity: 1;
+  transform: translateX(0);
 }
 
 .footer {
@@ -273,4 +290,11 @@ body {
 .footer__divider {
   color: var(--border);
   font-size: 1.2rem;
+}
+
+.hidden {
+  position: absolute;
+  opacity: 0;
+  transform: translateX(-100%);
+  pointer-events: none;
 }
